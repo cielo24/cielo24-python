@@ -32,7 +32,7 @@ class WebUtils(object):
             query = {}
         if headers is None:
             headers = {}
-        http_connection = HTTPConnection(urlparse(base_uri).netloc, timeout=timeout)
+        http_connection = HTTPConnection(base_uri, timeout=timeout)
         query_string = ('?' + urlencode(query)) if len(query) else ''
         # Will raise an error on timeout
         http_connection.request(method, path + query_string, body=body, headers=headers)
