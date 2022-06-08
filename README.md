@@ -97,8 +97,10 @@ Class | Method | HTTP request | Description
 *JobApi* | [**add_media_file**](docs/JobApi.md#add_media_file) | **POST** /job/add_media | 
 *JobApi* | [**add_media_url**](docs/JobApi.md#add_media_url) | **GET** /job/add_media | 
 *JobApi* | [**authorize_job**](docs/JobApi.md#authorize_job) | **POST** /job/authorize | 
+*JobApi* | [**get_caption**](docs/JobApi.md#get_caption) | **GET** /job/get_caption | 
 *JobApi* | [**new_job**](docs/JobApi.md#new_job) | **POST** /job/new | 
 *JobApi* | [**perform_transcription**](docs/JobApi.md#perform_transcription) | **POST** /job/perform_transcription | 
+*JobApi* | [**perform_translation**](docs/JobApi.md#perform_translation) | **POST** /job/perform_translation | 
 
 
 ## Documentation For Models
@@ -113,6 +115,7 @@ Class | Method | HTTP request | Description
  - [NewJobResponse](docs/NewJobResponse.md)
  - [PerformTranscriptionBody](docs/PerformTranscriptionBody.md)
  - [PerformTranscriptionResponse](docs/PerformTranscriptionResponse.md)
+ - [PerformTranslationResponse](docs/PerformTranslationResponse.md)
  - [VerifyKeyResponse](docs/VerifyKeyResponse.md)
 
 

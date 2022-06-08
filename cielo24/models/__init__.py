@@ -19,4 +19,5 @@ from cielo24.model.new_job_body import NewJobBody
 from cielo24.model.new_job_response import NewJobResponse
 from cielo24.model.perform_transcription_body import PerformTranscriptionBody
 from cielo24.model.perform_transcription_response import PerformTranscriptionResponse
+from cielo24.model.perform_translation_response import PerformTranslationResponse
 from cielo24.model.verify_key_response import VerifyKeyResponse

@@ -21,6 +21,7 @@ cielo24/model/new_job_body.py
 cielo24/model/new_job_response.py
 cielo24/model/perform_transcription_body.py
 cielo24/model/perform_transcription_response.py
+cielo24/model/perform_translation_response.py
 cielo24/model/verify_key_response.py
 cielo24/model_utils.py
 cielo24/models/__init__.py
@@ -37,8 +38,8 @@ docs/NewJobBody.md
 docs/NewJobResponse.md
 docs/PerformTranscriptionBody.md
 docs/PerformTranscriptionResponse.md
+docs/PerformTranslationResponse.md
 docs/VerifyKeyResponse.md
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

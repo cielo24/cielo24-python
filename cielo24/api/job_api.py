@@ -28,6 +28,7 @@ from cielo24.model.new_job_body import NewJobBody
 from cielo24.model.new_job_response import NewJobResponse
 from cielo24.model.perform_transcription_body import PerformTranscriptionBody
 from cielo24.model.perform_transcription_response import PerformTranscriptionResponse
+from cielo24.model.perform_translation_response import PerformTranslationResponse
 
 
 class JobApi(object):
@@ -258,6 +259,479 @@ class JobApi(object):
             },
             api_client=api_client
         )
+        self.get_caption_endpoint = _Endpoint(
+            settings={
+                'response_type': (str,),
+                'auth': [
+                    'ApiKeyAuth'
+                ],
+                'endpoint_path': '/job/get_caption',
+                'operation_id': 'get_caption',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'v',
+                    'job_id',
+                    'caption_format',
+                    'build_url',
+                    'caption_words_min',
+                    'caption_by_sentence',
+                    'characters_per_caption_line',
+                    'dfxp_header',
+                    'disallow_dangling',
+                    'display_effects_speaker_as',
+                    'display_speaker_id',
+                    'iwp_name',
+                    'elementlist_version',
+                    'emit_speaker_change_tokens_as',
+                    'force_case',
+                    'include_dfxp_metadata',
+                    'layout_target_caption_length_ms',
+                    'line_break_on_sentence',
+                    'line_ending_format',
+                    'lines_per_caption',
+                    'mask_profanity',
+                    'maximum_caption_duration',
+                    'merge_gap_interval',
+                    'minimum_caption_length_ms',
+                    'minimum_gap_between_captions_ms',
+                    'qt_seamless',
+                    'remove_disfluencies',
+                    'remove_sounds_list',
+                    'remove_sound_references',
+                    'replace_slang',
+                    'silence_max_ms',
+                    'single_speaker_per_caption',
+                    'sound_boundaries',
+                    'sound_threshold',
+                    'sound_tokens_by_caption',
+                    'sound_tokens_by_line',
+                    'sound_tokens_by_caption_list',
+                    'sound_tokens_by_line_list',
+                    'speaker_on_new_line',
+                    'srt_format',
+                    'strip_square_brackets',
+                    'utf8_mark',
+                    'replace_english_spelling',
+                ],
+                'required': [
+                    'v',
+                    'job_id',
+                    'caption_format',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'caption_format',
+                    'build_url',
+                    'caption_by_sentence',
+                    'disallow_dangling',
+                    'display_speaker_id',
+                    'iwp_name',
+                    'force_case',
+                    'include_dfxp_metadata',
+                    'line_break_on_sentence',
+                    'line_ending_format',
+                    'mask_profanity',
+                    'qt_seamless',
+                    'remove_disfluencies',
+                    'remove_sounds_list',
+                    'remove_sound_references',
+                    'replace_slang',
+                    'single_speaker_per_caption',
+                    'sound_tokens_by_caption',
+                    'sound_tokens_by_line',
+                    'sound_tokens_by_caption_list',
+                    'sound_tokens_by_line_list',
+                    'speaker_on_new_line',
+                    'strip_square_brackets',
+                    'utf8_mark',
+                    'replace_english_spelling',
+                ],
+                'validation': [
+                    'sound_boundaries',
+                ]
+            },
+            root_map={
+                'validations': {
+                    ('sound_boundaries',): {
+
+                    },
+                },
+                'allowed_values': {
+                    ('caption_format',): {
+
+                        "DFXP": "DFXP",
+                        "ECHO": "ECHO",
+                        "QT": "QT",
+                        "SAMI": "SAMI",
+                        "SBV": "SBV",
+                        "SCC": "SCC",
+                        "SRT": "SRT",
+                        "TPM": "TPM",
+                        "TRANSCRIPT": "TRANSCRIPT",
+                        "TWX": "TWX",
+                        "WEB_VTT": "WEB_VTT"
+                    },
+                    ('build_url',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('caption_by_sentence',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('disallow_dangling',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('display_speaker_id',): {
+
+                        "NO": "no",
+                        "NUMBER": "number",
+                        "NAME": "name"
+                    },
+                    ('iwp_name',): {
+
+                        "PREMIUM": "PREMIUM",
+                        "INTERIM_PROFESSIONAL": "INTERIM_PROFESSIONAL",
+                        "PROFESSIONAL": "PROFESSIONAL",
+                        "SPEAKER_ID": "SPEAKER_ID",
+                        "FINAL": "FINAL",
+                        "MECHANICAL": "MECHANICAL",
+                        "CUSTOMER_APPROVED_RETURN": "CUSTOMER_APPROVED_RETURN",
+                        "CUSTOMER_APPROVED_TRANSLATION": "CUSTOMER_APPROVED_TRANSLATION"
+                    },
+                    ('force_case',): {
+
+                        "EMPTY": "",
+                        "LOWER": "lower",
+                        "UPPER": "upper"
+                    },
+                    ('include_dfxp_metadata',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('line_break_on_sentence',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('line_ending_format',): {
+
+                        "UNIX": "UNIX",
+                        "OSX": "OSX",
+                        "WINDOWS": "WINDOWS"
+                    },
+                    ('mask_profanity',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('qt_seamless',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('remove_disfluencies',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('remove_sounds_list',): {
+
+                        "UNKNOWN": "UNKNOWN",
+                        "INAUDIBLE": "INAUDIBLE",
+                        "CROSSTALK": "CROSSTALK",
+                        "MUSIC": "MUSIC",
+                        "NOISE": "NOISE",
+                        "LAUGH": "LAUGH",
+                        "COUGH": "COUGH",
+                        "FOREIGN": "FOREIGN",
+                        "BLANK_AUDIO": "BLANK_AUDIO",
+                        "APPLAUSE": "APPLAUSE",
+                        "BLEEP": "BLEEP",
+                        "ENDS_SENTENCE": "ENDS_SENTENCE"
+                    },
+                    ('remove_sound_references',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('replace_slang',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('single_speaker_per_caption',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('sound_tokens_by_caption',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('sound_tokens_by_line',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('sound_tokens_by_caption_list',): {
+
+                        "UNKNOWN": "UNKNOWN",
+                        "INAUDIBLE": "INAUDIBLE",
+                        "CROSSTALK": "CROSSTALK",
+                        "MUSIC": "MUSIC",
+                        "NOISE": "NOISE",
+                        "LAUGH": "LAUGH",
+                        "COUGH": "COUGH",
+                        "FOREIGN": "FOREIGN",
+                        "BLANK_AUDIO": "BLANK_AUDIO",
+                        "APPLAUSE": "APPLAUSE",
+                        "BLEEP": "BLEEP",
+                        "ENDS_SENTENCE": "ENDS_SENTENCE"
+                    },
+                    ('sound_tokens_by_line_list',): {
+
+                        "UNKNOWN": "UNKNOWN",
+                        "INAUDIBLE": "INAUDIBLE",
+                        "CROSSTALK": "CROSSTALK",
+                        "MUSIC": "MUSIC",
+                        "NOISE": "NOISE",
+                        "LAUGH": "LAUGH",
+                        "COUGH": "COUGH",
+                        "FOREIGN": "FOREIGN",
+                        "BLANK_AUDIO": "BLANK_AUDIO",
+                        "APPLAUSE": "APPLAUSE",
+                        "BLEEP": "BLEEP",
+                        "ENDS_SENTENCE": "ENDS_SENTENCE"
+                    },
+                    ('speaker_on_new_line',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('strip_square_brackets',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('utf8_mark',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                    ('replace_english_spelling',): {
+
+                        "A": "A",
+                        "B": "B",
+                        "Z": "Z",
+                        "U": "U",
+                        "C": "C"
+                    },
+                },
+                'openapi_types': {
+                    'v':
+                        (int,),
+                    'job_id':
+                        (str,),
+                    'caption_format':
+                        (str,),
+                    'build_url':
+                        (str,),
+                    'caption_words_min':
+                        (int,),
+                    'caption_by_sentence':
+                        (str,),
+                    'characters_per_caption_line':
+                        (int,),
+                    'dfxp_header':
+                        (str,),
+                    'disallow_dangling':
+                        (str,),
+                    'display_effects_speaker_as':
+                        (str,),
+                    'display_speaker_id':
+                        (str,),
+                    'iwp_name':
+                        (str,),
+                    'elementlist_version':
+                        (str,),
+                    'emit_speaker_change_tokens_as':
+                        (str,),
+                    'force_case':
+                        (str,),
+                    'include_dfxp_metadata':
+                        (str,),
+                    'layout_target_caption_length_ms':
+                        (int,),
+                    'line_break_on_sentence':
+                        (str,),
+                    'line_ending_format':
+                        (str,),
+                    'lines_per_caption':
+                        (int,),
+                    'mask_profanity':
+                        (str,),
+                    'maximum_caption_duration':
+                        (int,),
+                    'merge_gap_interval':
+                        (int,),
+                    'minimum_caption_length_ms':
+                        (int,),
+                    'minimum_gap_between_captions_ms':
+                        (int,),
+                    'qt_seamless':
+                        (str,),
+                    'remove_disfluencies':
+                        (str,),
+                    'remove_sounds_list':
+                        ([str],),
+                    'remove_sound_references':
+                        (str,),
+                    'replace_slang':
+                        (str,),
+                    'silence_max_ms':
+                        (int,),
+                    'single_speaker_per_caption':
+                        (str,),
+                    'sound_boundaries':
+                        ([str],),
+                    'sound_threshold':
+                        (int,),
+                    'sound_tokens_by_caption':
+                        (str,),
+                    'sound_tokens_by_line':
+                        (str,),
+                    'sound_tokens_by_caption_list':
+                        ([str],),
+                    'sound_tokens_by_line_list':
+                        ([str],),
+                    'speaker_on_new_line':
+                        (str,),
+                    'srt_format':
+                        (str,),
+                    'strip_square_brackets':
+                        (str,),
+                    'utf8_mark':
+                        (str,),
+                    'replace_english_spelling':
+                        (str,),
+                },
+                'attribute_map': {
+                    'v': 'v',
+                    'job_id': 'job_id',
+                    'caption_format': 'caption_format',
+                    'build_url': 'build_url',
+                    'caption_words_min': 'caption_words_min',
+                    'caption_by_sentence': 'caption_by_sentence',
+                    'characters_per_caption_line': 'characters_per_caption_line',
+                    'dfxp_header': 'dfxp_header',
+                    'disallow_dangling': 'disallow_dangling',
+                    'display_effects_speaker_as': 'display_effects_speaker_as',
+                    'display_speaker_id': 'display_speaker_id',
+                    'iwp_name': 'iwp_name',
+                    'elementlist_version': 'elementlist_version',
+                    'emit_speaker_change_tokens_as': 'emit_speaker_change_tokens_as',
+                    'force_case': 'force_case',
+                    'include_dfxp_metadata': 'include_dfxp_metadata',
+                    'layout_target_caption_length_ms': 'layout_target_caption_length_ms',
+                    'line_break_on_sentence': 'line_break_on_sentence',
+                    'line_ending_format': 'line_ending_format',
+                    'lines_per_caption': 'lines_per_caption',
+                    'mask_profanity': 'mask_profanity',
+                    'maximum_caption_duration': 'maximum_caption_duration',
+                    'merge_gap_interval': 'merge_gap_interval',
+                    'minimum_caption_length_ms': 'minimum_caption_length_ms',
+                    'minimum_gap_between_captions_ms': 'minimum_gap_between_captions_ms',
+                    'qt_seamless': 'qt_seamless',
+                    'remove_disfluencies': 'remove_disfluencies',
+                    'remove_sounds_list': 'remove_sounds_list',
+                    'remove_sound_references': 'remove_sound_references',
+                    'replace_slang': 'replace_slang',
+                    'silence_max_ms': 'silence_max_ms',
+                    'single_speaker_per_caption': 'single_speaker_per_caption',
+                    'sound_boundaries': 'sound_boundaries',
+                    'sound_threshold': 'sound_threshold',
+                    'sound_tokens_by_caption': 'sound_tokens_by_caption',
+                    'sound_tokens_by_line': 'sound_tokens_by_line',
+                    'sound_tokens_by_caption_list': 'sound_tokens_by_caption_list',
+                    'sound_tokens_by_line_list': 'sound_tokens_by_line_list',
+                    'speaker_on_new_line': 'speaker_on_new_line',
+                    'srt_format': 'srt_format',
+                    'strip_square_brackets': 'strip_square_brackets',
+                    'utf8_mark': 'utf8_mark',
+                    'replace_english_spelling': 'replace_english_spelling',
+                },
+                'location_map': {
+                    'v': 'query',
+                    'job_id': 'query',
+                    'caption_format': 'query',
+                    'build_url': 'query',
+                    'caption_words_min': 'query',
+                    'caption_by_sentence': 'query',
+                    'characters_per_caption_line': 'query',
+                    'dfxp_header': 'query',
+                    'disallow_dangling': 'query',
+                    'display_effects_speaker_as': 'query',
+                    'display_speaker_id': 'query',
+                    'iwp_name': 'query',
+                    'elementlist_version': 'query',
+                    'emit_speaker_change_tokens_as': 'query',
+                    'force_case': 'query',
+                    'include_dfxp_metadata': 'query',
+                    'layout_target_caption_length_ms': 'query',
+                    'line_break_on_sentence': 'query',
+                    'line_ending_format': 'query',
+                    'lines_per_caption': 'query',
+                    'mask_profanity': 'query',
+                    'maximum_caption_duration': 'query',
+                    'merge_gap_interval': 'query',
+                    'minimum_caption_length_ms': 'query',
+                    'minimum_gap_between_captions_ms': 'query',
+                    'qt_seamless': 'query',
+                    'remove_disfluencies': 'query',
+                    'remove_sounds_list': 'query',
+                    'remove_sound_references': 'query',
+                    'replace_slang': 'query',
+                    'silence_max_ms': 'query',
+                    'single_speaker_per_caption': 'query',
+                    'sound_boundaries': 'query',
+                    'sound_threshold': 'query',
+                    'sound_tokens_by_caption': 'query',
+                    'sound_tokens_by_line': 'query',
+                    'sound_tokens_by_caption_list': 'query',
+                    'sound_tokens_by_line_list': 'query',
+                    'speaker_on_new_line': 'query',
+                    'srt_format': 'query',
+                    'strip_square_brackets': 'query',
+                    'utf8_mark': 'query',
+                    'replace_english_spelling': 'query',
+                },
+                'collection_format_map': {
+                    'remove_sounds_list': 'multi',
+                    'sound_boundaries': 'multi',
+                    'sound_tokens_by_caption_list': 'multi',
+                    'sound_tokens_by_line_list': 'multi',
+                }
+            },
+            headers_map={
+                'accept': [
+                    'text/plain',
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.new_job_endpoint = _Endpoint(
             settings={
                 'response_type': (NewJobResponse,),
@@ -371,6 +845,84 @@ class JobApi(object):
                 'content_type': [
                     'application/json'
                 ]
+            },
+            api_client=api_client
+        )
+        self.perform_translation_endpoint = _Endpoint(
+            settings={
+                'response_type': (PerformTranslationResponse,),
+                'auth': [
+                    'ApiKeyAuth'
+                ],
+                'endpoint_path': '/job/perform_translation',
+                'operation_id': 'perform_translation',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'v',
+                    'job_id',
+                    'target_languages',
+                    'approve_uplevel',
+                ],
+                'required': [
+                    'v',
+                    'job_id',
+                    'target_languages',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                    'approve_uplevel',
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                    ('approve_uplevel',): {
+
+                        "TRUE": "true",
+                        "FALSE": "false",
+                        "T": "t",
+                        "F": "f",
+                        "TRUE": "true",
+                        "FALSE": "false"
+                    },
+                },
+                'openapi_types': {
+                    'v':
+                        (int,),
+                    'job_id':
+                        (str,),
+                    'target_languages':
+                        (str,),
+                    'approve_uplevel':
+                        (str,),
+                },
+                'attribute_map': {
+                    'v': 'v',
+                    'job_id': 'job_id',
+                    'target_languages': 'target_languages',
+                    'approve_uplevel': 'approve_uplevel',
+                },
+                'location_map': {
+                    'v': 'query',
+                    'job_id': 'query',
+                    'target_languages': 'query',
+                    'approve_uplevel': 'query',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
             },
             api_client=api_client
         )
@@ -650,6 +1202,137 @@ class JobApi(object):
             job_id
         return self.authorize_job_endpoint.call_with_http_info(**kwargs)
 
+    def get_caption(
+        self,
+        job_id,
+        caption_format,
+        v=1,
+        **kwargs
+    ):
+        """get_caption  # noqa: E501
+
+        Get the caption file for a job. The job must have completed transcription before a caption can be downloaded.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_caption(job_id, caption_format, v=1, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            job_id (str):
+            caption_format (str):
+            v (int): defaults to 1, must be one of [1]
+
+        Keyword Args:
+            build_url (str): Rather than returning the file, return a permanent URL to the file.. [optional] if omitted the server will use the default value of "false"
+            caption_words_min (int): Minimum number of words allowed in a caption.. [optional] if omitted the server will use the default value of 1
+            caption_by_sentence (str): When true, puts each sentence into its own caption. When false, more than one sentence may appear in a single caption.. [optional] if omitted the server will use the default value of "true"
+            characters_per_caption_line (int): Maximum number of characters to be displayed on each caption line.. [optional] if omitted the server will use the default value of 42
+            dfxp_header (str): Allows you to specify a custom header for your DFXP caption file. The header should be the entire contents of the header including the opening and closing tags. Ignored if caption_format does not equal DFXP.. [optional] if omitted the server will use the default value of ""
+            disallow_dangling (str): Will prevent captions from having the last word in a sentence start a new line. Last words will ALWAYS be kept on the same line, even if it breaks the characters_per_caption_line option.. [optional] if omitted the server will use the default value of "false"
+            display_effects_speaker_as (str): Determines what speaker name should used for sound effects.. [optional] if omitted the server will use the default value of "Effects"
+            display_speaker_id (str): Determines the way speakers are identified in the captions. Choose \"no\" to not display speaker identities at all: \">> example\" Choose \"number\" to display only the speaker number: \">> Speaker 1: example\" Choose \"name\" to display the speaker name: \">> John Doe: example\". If you choose \"name\", the speaker number will be displayed if the name is not available.. [optional] if omitted the server will use the default value of "name"
+            iwp_name (str): The named version of element list to generate the transcript from. If not specified, the transcript will be generated from the latest version.. [optional] if omitted the server will use the default value of ""
+            elementlist_version (str): The version of element list to generate the captions from. If not specified, the caption will be generated from the latest version. (ISO 8601 Date String). [optional] if omitted the server will use the default value of ""
+            emit_speaker_change_tokens_as (str): Determine what characters to use to denote speaker changes.. [optional] if omitted the server will use the default value of ">>"
+            force_case (str): Force the contents of the captions to be all UPPER or lower case. If blank, the case of the captions is not changed.. [optional] if omitted the server will use the default value of ""
+            include_dfxp_metadata (str): When true, and the caption format requested is DFXP, the jobs name, ID and language will be added to the DFXP metadata header. When false, these data are omitted from the header. Ignored if caption_format does not equal DFXP.. [optional] if omitted the server will use the default value of "true"
+            layout_target_caption_length_ms (int): Captions generated will, on average, be this duration. However, they may vary significantly based on other parameters you set.. [optional] if omitted the server will use the default value of 5000
+            line_break_on_sentence (str): Inserts a line break in between sentences that are in the same caption.. [optional] if omitted the server will use the default value of "false"
+            line_ending_format (str): Determine the end of line (EOL) character to use for the captions.. [optional] if omitted the server will use the default value of "UNIX"
+            lines_per_caption (int): Number of lines to be displayed for each caption.. [optional] if omitted the server will use the default value of 2
+            mask_profanity (str): Replace profanity with asterisks.. [optional] if omitted the server will use the default value of "false"
+            maximum_caption_duration (int): No captions longer than this (in milliseconds) will be produced. If not specified, there is no maximum.. [optional]
+            merge_gap_interval (int): Captions with a gap between them that is smaller than this (in milliseconds) will have their start and/or end times changed so there is no time gap between the captions.. [optional] if omitted the server will use the default value of 1000
+            minimum_caption_length_ms (int): Extends the duration of short captions to the this minimum length. Additional time is taken from later caption blocks to meet this minimum time.. [optional]
+            minimum_gap_between_captions_ms (int): Adds a minimum time between captions such as there will always be some time between captions where no text is displayed. When captions are very close together, time will be removed from the caption duration to make the gap.. [optional]
+            qt_seamless (str): Does not put time gaps of any kind between caption blocks. Ignored if caption_format does not equal QT.. [optional] if omitted the server will use the default value of "false"
+            remove_disfluencies (str): Remove verbal disfluencies from the generated transcript. Common disfluencies such as \"um\" and \"ah\" are removed while maintaining appropriate punctuation.. [optional] if omitted the server will use the default value of "true"
+            remove_sounds_list ([str]): A list of sounds to not show in the caption. This is a JSON style list, and should look like [\"MUSIC\", \"LAUGH\"]. Ignored if remove_sound_references is true.. [optional] if omitted the server will use the default value of []
+            remove_sound_references (str): Remove ALL non-verbal sound and noise references from the generated transcript. Sounds and unidentified noises are depicted in the caption as [SOUND], [COUGH] and [NOISE]. If this parameter is set, these identifiers are omitted from the caption.. [optional] if omitted the server will use the default value of "true"
+            replace_slang (str): Replace common slang terms from the generated transcript. Common replacements are \"want to\" for \"wanna\", \"going to\" for \"gonna\", etc.. [optional] if omitted the server will use the default value of "false"
+            silence_max_ms (int): If there is a interval of silence in the middle of a sentence longer than this, then the caption will be split.. [optional] if omitted the server will use the default value of 2000
+            single_speaker_per_caption (str): When true, puts each speaker into its own caption. When false, more than one speaker may appear in a single caption.. [optional] if omitted the server will use the default value of "true"
+            sound_boundaries ([str]): Specifies the characters to surround sound references with. The default will generate sound references that look like this: [MUSIC].. [optional] if omitted the server will use the default value of ["[","]"]
+            sound_threshold (int): Sound references that are longer than this threshold will be made their own caption entirely, and will not have any text included with them. If not set, Sound references will be included back to back with text no matter the duration of the sound.. [optional]
+            sound_tokens_by_caption (str): If true, all sound references will always be in their own caption. If false, more than one sound reference may appear in a single caption.. [optional] if omitted the server will use the default value of "false"
+            sound_tokens_by_line (str): If true, all sound references will always be in their own line. If false, more than one sound reference may appear in a single line.. [optional] if omitted the server will use the default value of "false"
+            sound_tokens_by_caption_list ([str]): If non-empty, the specified sound references will always be in their own caption. If empty, more than one sound reference may appear in a single caption. Ignored if sound_tokens_by_caption is true.. [optional] if omitted the server will use the default value of ["BLANK_AUDIO","MUSIC"]
+            sound_tokens_by_line_list ([str]): If non-empty, the specified sound references will always be in their own line. If empty, more than one sound reference may appear in a single line. Ignored if sound_tokens_by_line is true.. [optional] if omitted the server will use the default value of ["BLANK_AUDIO","MUSIC"]
+            speaker_on_new_line (str): If true, a speaker change will cause a new caption to be made. If false, multiple speakers may appear in a single caption.. [optional] if omitted the server will use the default value of "true"
+            srt_format (str): If the caption format is SRT, determines what the caption blocks will look like. The default, prints caption blocks that look like this:    1:   00:00:06,060 --> 00:00:16,060   This is the caption text.  You can alter the caption block by re-arranging or removing the substitution string values, shown enclosed in braces \"{}\" in the default value below. Substitution strings may used more than once if desired. Any text that is not a substitution string will be displayed as written. To add new lines, include a \\n. Note, you may need to escape the \\n with an extra backslash when encoding the request. . [optional] if omitted the server will use the default value of "{caption_number:d}\n{start_hour:02d}:{start_minute:02d}:{start_second:02d},{start_millisecond:03d} -->{end_hour:02d}:{end_minute:02d}:{end_second:02d},{end_millisecond:03d}\n{caption_text}\n\n"
+            strip_square_brackets (str): Removes all square brackets like '[' or ']' from captions. By default square brackets surround sound references like '[MUSIC]', but they may exist as part of the caption text as well.. [optional] if omitted the server will use the default value of "false"
+            utf8_mark (str): Adds a utf8 bytemark to the beginning of the caption. This should only be used if the system you are loading the caption files into needs a byte marker. The vast majority of systems do not.. [optional] if omitted the server will use the default value of "false"
+            replace_english_spelling (str): Replaces English spelling with location accurate spelling. i.e. Color --> Colour  A: American  B: British  Z: British ize  U: Australian  C: Canadian . [optional] if omitted the server will use the default value of "A"
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            str
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['v'] = \
+            v
+        kwargs['job_id'] = \
+            job_id
+        kwargs['caption_format'] = \
+            caption_format
+        return self.get_caption_endpoint.call_with_http_info(**kwargs)
+
     def new_job(
         self,
         new_job_body,
@@ -823,4 +1506,96 @@ class JobApi(object):
         kwargs['perform_transcription_body'] = \
             perform_transcription_body
         return self.perform_transcription_endpoint.call_with_http_info(**kwargs)
+
+    def perform_translation(
+        self,
+        job_id,
+        target_languages,
+        v=1,
+        **kwargs
+    ):
+        """perform_translation  # noqa: E501
+
+        Request that orders a new Translation language for a video that has been previously Transcribed and/or Translated. The New Job ID and job target language will be returned upon completion.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.perform_translation(job_id, target_languages, v=1, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            job_id (str):
+            target_languages (str): The language(s) being ordered (Any RFC 5646 language code) separated by comma (,)
+            v (int): defaults to 1, must be one of [1]
+
+        Keyword Args:
+            approve_uplevel (str): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            _request_auths (list): set to override the auth_settings for an a single
+                request; this effectively ignores the authentication
+                in the spec for a single request.
+                Default is None
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PerformTranslationResponse
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['_request_auths'] = kwargs.get('_request_auths', None)
+        kwargs['v'] = \
+            v
+        kwargs['job_id'] = \
+            job_id
+        kwargs['target_languages'] = \
+            target_languages
+        return self.perform_translation_endpoint.call_with_http_info(**kwargs)
 
