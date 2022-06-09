@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **get_settings**
-> get_settings()
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} get_settings()
 
 
 
@@ -50,7 +50,8 @@ with cielo24.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        api_instance.get_settings()
+        api_response = api_instance.get_settings()
+        pprint(api_response)
     except cielo24.ApiException as e:
         print("Exception when calling AccountApi->get_settings: %s\n" % e)
 ```
@@ -64,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
 
 ### Authorization
 
@@ -73,7 +74,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details

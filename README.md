@@ -17,9 +17,9 @@ Python >=3.6
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
+pip install git+https://github.com/cielo24/cielo24-python.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/cielo24/cielo24-python.git`)
 
 Then import the package:
 ```python
@@ -79,7 +79,8 @@ with cielo24.ApiClient(configuration) as api_client:
     v = 1 # int |  (default to 1)
 
     try:
-        api_instance.get_settings(v)
+        api_response = api_instance.get_settings(v)
+        pprint(api_response)
     except cielo24.ApiException as e:
         print("Exception when calling AccountApi->get_settings: %s\n" % e)
 ```

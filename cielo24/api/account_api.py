@@ -41,7 +41,7 @@ class AccountApi(object):
         self.api_client = api_client
         self.get_settings_endpoint = _Endpoint(
             settings={
-                'response_type': None,
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
                 'auth': [
                     'ApiKeyAuth'
                 ],
@@ -83,7 +83,9 @@ class AccountApi(object):
                 }
             },
             headers_map={
-                'accept': [],
+                'accept': [
+                    'application/json'
+                ],
                 'content_type': [],
             },
             api_client=api_client
@@ -297,7 +299,7 @@ class AccountApi(object):
             async_req (bool): execute request asynchronously
 
         Returns:
-            None
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
                 If the method is called asynchronously, returns the request
                 thread.
         """
