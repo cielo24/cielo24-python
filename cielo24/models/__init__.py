@@ -12,6 +12,7 @@
 from cielo24.model.add_media_response import AddMediaResponse
 from cielo24.model.error_response import ErrorResponse
 from cielo24.model.iwp_enum import IWPEnum
+from cielo24.model.job_info_response import JobInfoResponse
 from cielo24.model.job_options import JobOptions
 from cielo24.model.login_body import LoginBody
 from cielo24.model.login_response import LoginResponse

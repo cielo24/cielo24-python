@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**add_media_url**](JobApi.md#add_media_url) | **GET** /job/add_media | 
 [**authorize_job**](JobApi.md#authorize_job) | **POST** /job/authorize | 
 [**get_caption**](JobApi.md#get_caption) | **GET** /job/get_caption | 
+[**job_info**](JobApi.md#job_info) | **GET** /job/info | 
 [**new_job**](JobApi.md#new_job) | **POST** /job/new | 
 [**perform_transcription**](JobApi.md#perform_transcription) | **POST** /job/perform_transcription | 
 [**perform_translation**](JobApi.md#perform_translation) | **POST** /job/perform_translation | 
@@ -435,6 +436,84 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain, application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | An error occurred |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **job_info**
+> JobInfoResponse job_info(job_id)
+
+
+
+### Example
+
+* Api Key Authentication (ApiKeyAuth):
+
+```python
+import time
+import cielo24
+from cielo24.api import job_api
+from cielo24.model.job_info_response import JobInfoResponse
+from cielo24.model.error_response import ErrorResponse
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.cielo24.com/api
+# See configuration.py for a list of all supported configuration parameters.
+configuration = cielo24.Configuration(
+    host = "https://api.cielo24.com/api"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKeyAuth
+configuration.api_key['ApiKeyAuth'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKeyAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with cielo24.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = job_api.JobApi(api_client)
+    job_id = "0fbd6015910e42dca25a863c4925d77c" # str | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        api_response = api_instance.job_info(job_id)
+        pprint(api_response)
+    except cielo24.ApiException as e:
+        print("Exception when calling JobApi->job_info: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **job_id** | **str**|  |
+ **v** | **int**|  | defaults to 1
+
+### Return type
+
+[**JobInfoResponse**](JobInfoResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details

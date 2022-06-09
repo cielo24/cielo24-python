@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
 *JobApi* | [**add_media_url**](docs/JobApi.md#add_media_url) | **GET** /job/add_media | 
 *JobApi* | [**authorize_job**](docs/JobApi.md#authorize_job) | **POST** /job/authorize | 
 *JobApi* | [**get_caption**](docs/JobApi.md#get_caption) | **GET** /job/get_caption | 
+*JobApi* | [**job_info**](docs/JobApi.md#job_info) | **GET** /job/info | 
 *JobApi* | [**new_job**](docs/JobApi.md#new_job) | **POST** /job/new | 
 *JobApi* | [**perform_transcription**](docs/JobApi.md#perform_transcription) | **POST** /job/perform_transcription | 
 *JobApi* | [**perform_translation**](docs/JobApi.md#perform_translation) | **POST** /job/perform_translation | 
@@ -108,6 +109,7 @@ Class | Method | HTTP request | Description
  - [AddMediaResponse](docs/AddMediaResponse.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [IWPEnum](docs/IWPEnum.md)
+ - [JobInfoResponse](docs/JobInfoResponse.md)
  - [JobOptions](docs/JobOptions.md)
  - [LoginBody](docs/LoginBody.md)
  - [LoginResponse](docs/LoginResponse.md)
