@@ -912,7 +912,7 @@ class JobApi(object):
                 'auth': [
                     'ApiKeyAuth'
                 ],
-                'endpoint_path': '/job/perform_translation',
+                'endpoint_path': '/job/translate',
                 'operation_id': 'perform_translation',
                 'http_method': 'POST',
                 'servers': None,

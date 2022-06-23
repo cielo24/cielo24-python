@@ -102,7 +102,7 @@ Class | Method | HTTP request | Description
 *JobApi* | [**job_info**](docs/JobApi.md#job_info) | **GET** /job/info | 
 *JobApi* | [**new_job**](docs/JobApi.md#new_job) | **POST** /job/new | 
 *JobApi* | [**perform_transcription**](docs/JobApi.md#perform_transcription) | **POST** /job/perform_transcription | 
-*JobApi* | [**perform_translation**](docs/JobApi.md#perform_translation) | **POST** /job/perform_translation | 
+*JobApi* | [**perform_translation**](docs/JobApi.md#perform_translation) | **POST** /job/translate | 
 
 
 ## Documentation For Models

@@ -68,6 +68,7 @@ class JobInfoResponse(ModelNormal):
             'MECHANICAL': "MECHANICAL",
             'PREMIUM': "PREMIUM",
             'PROFESSIONAL': "PROFESSIONAL",
+            'HIGH': "HIGH",
         },
         ('job_status',): {
             'AUTHORIZING': "Authorizing",
